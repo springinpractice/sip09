@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<div id="comments">
+	<h2 class="comments icon">Comments (${fn:length(commentList)})</h2>
+	<c:choose>
+		<c:when test="${not empty commentList}">
+			<div id="commentsContainer">
+				<c:forEach var="comment" items="${commentList}">
+					<c:set var="commentName" value="${comment.name}" />
+					<c:set var="commentWeb" value="${comment.web}" />
+					<fmt:formatDate var="commentDate" type="both" timeStyle="short" value="${comment.dateCreated}" />
+					
+					<div id="comment-${comment.id}" class="comment">
+						<div class="body">${comment.htmlText}</div>
+						<div class="byline">
+							by
+							<c:choose>
+								<c:when test="${empty comment.web}">
+									<span class="user icon">${commentName}</span>
+								</c:when>
+								<c:otherwise>
+									<span class="user icon"><a href="${commentWeb}" rel="nofollow">${commentName}</a></span>
+								</c:otherwise>
+							</c:choose>
+							on
+							<span class="date icon">${commentDate}</span>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<p>No comments.</p>
+		</c:otherwise>
+	</c:choose>
+</div>

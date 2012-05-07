@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+<c:url var="wmdJsUrl" value="/scripts/wmd/wmd.js" />
+
+<spring:message var="postCommentLabel" code="commentForm.label.postComment" />
+
+<div id="postComment">
+	<form:form modelAttribute="comment" action="${postCommentUrl}">
+	    <form:errors>
+			<div class="warning">
+				<form:errors></form:errors>
+			</div>
+	    </form:errors>
+	    
+		<h2 class="commentAdd icon">Post a comment</h2>
+	    
+	    <table>
+	    	<tr>
+	    		<td>
+	    			<div><form:input id="name" path="name" cssClass="medium" cssErrorClass="medium error" /></div>
+					<form:errors path="name">
+						<div class="formFieldError"><form:errors path="name" /></div>
+					</form:errors>
+	    		</td>
+	    		<td class="formLabel">
+	    			<span class="user icon"><spring:message code="commentForm.label.yourName" /></span>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td>
+	    			<div><form:input path="email" cssClass="medium" cssErrorClass="medium error" /></div>
+	    			<div class="formFieldError"><form:errors path="email" /></div>
+	    		</td>
+	    		<td class="formLabel">
+					<span class="email icon"><spring:message code="commentForm.label.yourEmail" /></span>
+					<spring:message code="commentForm.label.wontBeDisplayed" />
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td>
+	    			<div><form:input path="web" cssClass="medium" cssErrorClass="medium error" /></div>
+	    			<div class="formFieldError"><form:errors path="web" /></div>
+	    		</td>
+	    		<td class="formLabel">
+					<span class="world icon"><spring:message code="commentForm.label.yourWebSite" /></span>
+					<spring:message code="commentForm.label.optional" />
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td colspan="2">
+	    			<div class="formLabel">
+						<spring:message code="commentForm.label.yourComment" />:
+	    			</div>
+					<div><form:textarea path="markdownText" cssClass="resizable" cssErrorClass="resizable error" /></div>
+					<form:errors path="markdownText">
+						<div class="formFieldError"><form:errors path="markdownText" /></div>
+					</form:errors>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td colspan="2">
+	    			<div class="formLabel">
+	    				<spring:message code="commentForm.label.preview" />
+	    			</div>
+	    			<div class="wmd-preview"></div>
+					<script type="text/javascript">wmd_options = { output: "Markdown" };</script>
+					<script type="text/javascript" src="${wmdJsUrl}"></script>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td colspan="2">
+					<input type="submit" value="${postCommentLabel}" />
+	    		</td>
+	    	</tr>
+	    </table>
+	</form:form>
+</div>
