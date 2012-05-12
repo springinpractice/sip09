@@ -23,8 +23,7 @@ public final class Comment implements Comparable<Comment> {
 	private String name;
 	private String email;
 	private String web;
-	private String markdownText;
-	private String htmlText;
+	private String text;
 	private String ipAddress;
 	private Date dateCreated;
 	
@@ -82,27 +81,11 @@ public final class Comment implements Comparable<Comment> {
 		this.web = StringUtils.trimWhitespace(web);
 	}
 
-	/**
-	 * <p>
-	 * Returns the <a
-	 * href="http://daringfireball.net/projects/markdown/">Markdown</a> version
-	 * of the comment text.
-	 * </p>
-	 * 
-	 * @return Markdown version of the comment text
-	 */
 	@Size(min = 1, max = 4000)
-	@Column(name = "markdown_text")
-	public String getMarkdownText() { return markdownText; }
+	@Column(name = "text")
+	public String getText() { return text; }
 
-	public void setMarkdownText(String markdownText) {
-		this.markdownText = markdownText;
-	}
-	
-	@Column(name = "html_text")
-	public String getHtmlText() { return htmlText; }
-	
-	public void setHtmlText(String htmlText) { this.htmlText = htmlText; }
+	public void setText(String text) { this.text = text; }
 
 	@Column(name = "ip_addr")
 	public String getIpAddress() { return ipAddress; }
