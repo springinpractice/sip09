@@ -42,6 +42,8 @@
 		p:session-ref="mailSession" />
 	
 	<!-- Template for notification e-mails when someone posts a comment -->
+	<!-- NOTE: Gmail ignores the from address here, and instead uses the authenticated account as the from address. -->
+	<!-- Other SMTP providers may or may not allow you to specify a from address. -->
 	<bean class="org.springframework.mail.SimpleMailMessage"
 		p:to="${comment.notification.to}"
 		p:from="${comment.notification.from}"
