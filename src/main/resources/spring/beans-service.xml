@@ -54,6 +54,7 @@
 	<!-- Service                                                                                                     -->
 	<!-- =========================================================================================================== -->
 	
+	<context:component-scan base-package="com.springinpractice.ch09.article.service.impl" />
 	<context:component-scan base-package="com.springinpractice.ch09.comment.service.impl" />
 	
 	<!-- Support asynchronous e-mail delivery, which speeds things up -->
