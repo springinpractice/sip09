@@ -35,7 +35,7 @@ public final class ArticleController {
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		binder.setAllowedFields(new String[] { "id", "name", "email", "web", "markdownText" });
+		binder.setAllowedFields(new String[] { "id", "name", "email", "web", "text" });
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)

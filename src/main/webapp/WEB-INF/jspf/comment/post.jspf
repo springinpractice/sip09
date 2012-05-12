@@ -81,10 +81,10 @@
 						</div>
 					</div>
 					<div class="yui-u">
-						<form:textarea path="markdownText" cssClass="resizable" cssErrorClass="resizable error" />
-						<form:errors path="markdownText">
+						<form:textarea path="text" cssClass="resizable" cssErrorClass="resizable error" />
+						<form:errors path="text">
 							<div class="formFieldError">
-								<form:errors path="markdownText" />
+								<form:errors path="text" />
 							</div>
 						</form:errors>
 					</div>
