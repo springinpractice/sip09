@@ -1,4 +1,4 @@
-package com.springinpractice.ch09.comment.service;
+package com.springinpractice.ch09.comment.service.impl;
 
 import java.util.Date;
 
