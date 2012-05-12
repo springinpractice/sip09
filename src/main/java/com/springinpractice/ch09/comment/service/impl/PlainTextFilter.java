@@ -1,4 +1,6 @@
-package com.springinpractice.ch09.comment.service;
+package com.springinpractice.ch09.comment.service.impl;
+
+import com.springinpractice.ch09.comment.service.TextFilter;
 
 /**
  * @author Willie Wheeler (willie.wheeler@gmail.com)
