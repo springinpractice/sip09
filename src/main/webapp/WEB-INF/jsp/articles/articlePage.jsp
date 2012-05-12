@@ -31,16 +31,16 @@
 		<link rel="stylesheet" type="text/css" href="${shCssUrl}" />
 	</head>
 	<body>
-		<div id="breadcrumbs">
-			<a href="${articlesUrl}">Articles</a> &gt;
-			<a href="1">${article.title}</a> &gt;
-			Page ${articlePage.pageNumber}
-		</div>
+		<ul id="breadcrumbs">
+			<li><a href="${articlesUrl}">Articles</a></li>
+			<li><a href="1">${article.title}</a></li>
+			<li>Page ${articlePage.pageNumber}</li>
+		</ul>
 		
-		<%@ include file="pageNav.jspf" %>
+		<%@ include file="/WEB-INF/jspf/articles/pageNav.jspf" %>
 		
 		<div id="articlePageBody">
-			<div><%@ include file="social.jspf" %></div>
+			<div><%@ include file="/WEB-INF/jspf/articles/social.jspf" %></div>
 			
 			<c:choose>
 				<c:when test="${articlePage.pageNumber == 1}">
@@ -70,10 +70,10 @@
 			</c:choose>
 			
 			<div>${articlePage.body}</div>
-			<div style="text-align:right"><%@ include file="social.jspf" %></div>
+			<div style="text-align:right"><%@ include file="/WEB-INF/jspf/articles/social.jspf" %></div>
 		</div>
 		
-		<%@ include file="pageNav.jspf" %>
+		<%@ include file="/WEB-INF/jspf/articles/pageNav.jspf" %>
 		
 		<div class="panel"><%@ include file="/WEB-INF/jspf/comment/list.jspf" %></div>
 		<div class="panel"><%@ include file="/WEB-INF/jspf/comment/post.jspf" %></div>

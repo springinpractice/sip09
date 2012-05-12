@@ -19,11 +19,6 @@
 		<chapter.conf.dir>${sip.conf.dir}/sip${chapter.number}</chapter.conf.dir>
 	</properties>
 	
-	<properties>
-		<chapter.number>09</chapter.number>
-		<chapter.conf.dir>${sip.conf.dir}/sip${chapter.number}</chapter.conf.dir>
-	</properties>
-	
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>

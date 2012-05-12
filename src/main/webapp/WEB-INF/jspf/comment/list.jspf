@@ -6,7 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div id="comments">
-	<h2 class="comments icon">Comments (${fn:length(commentList)})</h2>
+	<h2 class="comments icon" style="margin-top:0">Comments (${fn:length(commentList)})</h2>
 	<c:choose>
 		<c:when test="${not empty commentList}">
 			<div id="commentsContainer">

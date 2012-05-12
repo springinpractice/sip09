@@ -1,0 +1,98 @@
+#kicker {
+	margin-top: 20px;
+	font-size: 93%;
+	text-transform: uppercase;
+}
+
+h1#articleTitle {
+	margin: 0 0 10px;
+}
+
+div#articleTitle {
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 10px;
+	font-size: 108%;
+}
+
+#byline {
+	margin: 20px 0;
+}
+
+#deck {
+	margin: 20px 0;
+	font-size: 93%;
+	font-weight: bold;
+}
+
+#articlePageBody {
+	margin: 20px 0;
+	border: 1px dashed #DDD;
+	padding: 10px;
+	background-color: #FFF;
+}
+
+.dropcap {
+	float: left;
+	color: #CCC;
+	font-size: 54px;
+	line-height: 44px;
+	padding: 0 4px 4px 0;
+	font-family: georgia, serif;
+}
+
+.code-listing {
+	padding-left: 20px;
+	background: url(../skin/images/silk/page_code.png) no-repeat;
+	color: #8E2800;
+	text-transform: uppercase;
+}
+
+.label, .figure-label {
+	color: #8E2800;
+	text-transform: uppercase;
+}
+
+
+/* Comments ================================================================ */
+
+.comment {
+	border-bottom: 1px solid #DDD;
+	padding: 20px;
+	background-color: #FFF;
+	color: #333;
+}
+
+#commentsContainer > :first-child {
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	
+	border-top-right-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#commentsContainer > :last-child {
+	-moz-border-radius-bottomleft: 10px;
+	-moz-border-radius-bottomright: 10px;
+	
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	
+	border-bottom-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.comment .body {
+	margin: 0 0 20px 0;
+}
+
+.comment a {
+	color: #1C6A8A;
+}
+
+.comment .byline {
+	margin: 20px 0 0 0;
+	color: #333;
+}

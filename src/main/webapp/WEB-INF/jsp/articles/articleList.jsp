@@ -12,7 +12,7 @@
 		<title>${pageTitle}</title>
 		<link rel="stylesheet" type="text/css" href="${articlesCssUrl}" />
 		<script type="text/javascript">
-			$(document).ready(function() {
+			$(function() {
 				$('#articleTable').tablesorter({
 					sortList: [ [0, 0] ],
 					textExtraction: "complex"
