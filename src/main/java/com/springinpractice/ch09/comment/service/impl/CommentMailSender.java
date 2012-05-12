@@ -37,7 +37,7 @@ public class CommentMailSender {
 	public void sendNotificationEmail(Comment comment) {
 		SimpleMailMessage message = new SimpleMailMessage(commentMailMessage);
 		message.setSentDate(new Date());
-		message.setText(comment.getMarkdownText());
+		message.setText(comment.getText());
 		mailSender.send(message);
 	}
 }
