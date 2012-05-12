@@ -14,6 +14,11 @@
 	<name>Spring in Practice Recipe 9.2</name>
 	<description>Recipe 9.2 shows how to integrate the comment engine with an article delivery service.</description>
 	
+	<properties>
+		<chapter.number>09</chapter.number>
+		<chapter.conf.dir>${sip.conf.dir}/sip${chapter.number}</chapter.conf.dir>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -38,5 +43,21 @@
 			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>com.springsource.javax.mail</artifactId>
+		</dependency>
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<configuration>
+					<jettyEnvXml>${chapter.conf.dir}/jetty-env.xml</jettyEnvXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

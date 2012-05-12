@@ -32,5 +32,5 @@
 	
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-		p:basename="classpath:/com/springinpractice/ch09/comment/messages" />
+		p:basename="classpath:/spring/messages" />
 </beans>
