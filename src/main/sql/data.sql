@@ -1,3 +1,5 @@
+use sip09;
+
 insert into comment_target values (1, now(), null);
 
 insert into article values (1, 'concurrent-programming', 'Software Development', 'Concurrent Programming for Practicing Software Engineers', 'Willie Wheeler',
