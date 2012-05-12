@@ -14,6 +14,11 @@
 	<name>Spring in Practice Recipe 9.1</name>
 	<description>Shows how to create a basic user comment engine.</description>
 	
+	<properties>
+		<chapter.number>09</chapter.number>
+		<chapter.conf.dir>${sip.conf.dir}/sip${chapter.number}</chapter.conf.dir>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
