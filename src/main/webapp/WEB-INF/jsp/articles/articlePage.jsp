@@ -18,6 +18,8 @@
 <c:url var="articlesUrl" value="/articles.html" />
 <c:url var="postCommentUrl" value="/articles/${article.name}/comments?p=${articlePage.pageNumber}#postComment" />
 
+<c:url var="zoneItUrl" value="/images/zone_it.png" />
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<c:if test="${not empty article.description}">
@@ -45,8 +47,7 @@
 			<c:choose>
 				<c:when test="${articlePage.pageNumber == 1}">
 					<div>
-						<%-- FIXME Hardcoded path --%>
-						<div style="float:right;margin:0 0 10px 10px"><img src="/sip/images/zone_it.png"></img></div>
+						<div style="float:right;margin:0 0 10px 10px"><img src="${zoneItUrl}"></img></div>
 			
 						<c:if test="${not empty article.category}">
 							<div id="kicker">${article.category}</div>

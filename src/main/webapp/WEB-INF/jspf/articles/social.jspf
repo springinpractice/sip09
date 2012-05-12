@@ -1,16 +1,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%-- FIXME Hardcoded path --%>
-<c:set var="baseHandyconPath" value="/sip/skin/images/handycons" />
+<c:set var="baseHandyconPath" value="/images/handycons" />
+
+<c:url var="deliciousUrl" value="${baseHandyconPath}/delicious_16x16.png" />
+<c:url var="diggUrl" value="${baseHandyconPath}/digg_16x16.png" />
+<c:url var="dzoneUrl" value="${baseHandyconPath}/dzone_16x16.png" />
+<c:url var="emailUrl" value="${baseHandyconPath}/email_16x16.png" />
+<c:url var="redditUrl" value="${baseHandyconPath}/reddit_16x16.png" />
+<c:url var="stumbleUponUrl" value="${baseHandyconPath}/stumbleupon_16x16.png" />
+<c:url var="technoratiUrl" value="${baseHandyconPath}/technorati_16x16.png" />
+<c:url var="twitterUrl" value="${baseHandyconPath}/tweeter_16x16.png" />
 
 <div id="socialIcons">
 	<span class="label">Social bookmarks:</span>
-	<img src="${baseHandyconPath}/delicious_16x16.png" />
-	<img src="${baseHandyconPath}/digg_16x16.png" />
-	<img src="${baseHandyconPath}/dzone_16x16.png" />
-	<img src="${baseHandyconPath}/email_16x16.png" />
-	<img src="${baseHandyconPath}/reddit_16x16.png" />
-	<img src="${baseHandyconPath}/stumbleupon_16x16.png" />
-	<img src="${baseHandyconPath}/technorati_16x16.png" />
-	<img src="${baseHandyconPath}/tweeter_16x16.png" />
+	<img src="${deliciousUrl}" />
+	<img src="${diggUrl}" />
+	<img src="${dzoneUrl}" />
+	<img src="${emailUrl}" />
+	<img src="${redditUrl}" />
+	<img src="${stumbleUponUrl}" />
+	<img src="${technoratiUrl}" />
+	<img src="${twitterUrl}" />
 </div>
