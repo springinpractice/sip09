@@ -46,8 +46,8 @@ public final class ArticleController {
 	
 	@RequestMapping(value = "{articleName}/{pageNumber}", method = RequestMethod.GET)
 	public String getArticlePage(
-			@PathVariable("articleName") String articleName,
-			@PathVariable("pageNumber") int pageNumber,
+			@PathVariable String articleName,
+			@PathVariable int pageNumber,
 			Model model) {
 		
 		prepareModel(model, articleName, pageNumber);
@@ -58,7 +58,7 @@ public final class ArticleController {
 	@RequestMapping(value = "{articleName}/comments", method = RequestMethod.POST)
 	public String postComment(
 		HttpServletRequest req,
-		@PathVariable("articleName") String articleName,
+		@PathVariable String articleName,
 		@RequestParam("p") int pageNumber,
 		Model model,
 		@ModelAttribute @Valid Comment comment,
