@@ -47,6 +47,10 @@
 			<groupId>javax.mail</groupId>
 			<artifactId>com.springsource.javax.mail</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.htmlcleaner</groupId>
+			<artifactId>htmlcleaner</artifactId>
+		</dependency> 
 	</dependencies>
 	
 	<build>

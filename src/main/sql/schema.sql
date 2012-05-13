@@ -18,7 +18,8 @@ create table comment (
     ip_addr varchar(20) not null,
     date_created timestamp default 0,
     date_modified timestamp default current_timestamp on update current_timestamp,
-    text text not null,
+    markdown_text text not null,
+    html_text text not null,
     foreign key (comment_target_id) references comment_target (id)
 ) engine = InnoDb;
 

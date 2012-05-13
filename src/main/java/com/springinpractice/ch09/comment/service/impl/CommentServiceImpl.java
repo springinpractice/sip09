@@ -49,6 +49,6 @@ public class CommentServiceImpl implements CommentService {
 	private void prepareComment(final Comment comment) {
 		comment.setWeb(WebUtils.cleanupWebUrl(comment.getWeb()));
 		comment.setDateCreated(new Date());
-		comment.setText(textFilter.filter(comment.getText()));
+		comment.setHtmlText(textFilter.filter(comment.getMarkdownText()));
 	}
 }

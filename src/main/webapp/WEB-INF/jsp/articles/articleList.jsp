@@ -5,11 +5,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="pageTitle" value="Technical Articles - Java, JEE, Spring Framework &amp; more" />
+
 <c:url var="articlesCssUrl" value="/styles/articles.css" />
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-		<title>${pageTitle}</title>
+		<title><c:out value="${pageTitle}" /></title>
 		<link rel="stylesheet" type="text/css" href="${articlesCssUrl}" />
 		<script type="text/javascript">
 			$(function() {

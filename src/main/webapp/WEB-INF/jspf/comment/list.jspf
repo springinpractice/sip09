@@ -16,7 +16,7 @@
 					<fmt:formatDate var="commentDate" type="both" timeStyle="short" value="${comment.dateCreated}" />
 					
 					<div id="comment-${comment.id}" class="comment">
-						<div class="body">${comment.text}</div>
+						<div class="body">${comment.htmlText}</div>
 						<div class="byline">
 							by
 							<c:choose>

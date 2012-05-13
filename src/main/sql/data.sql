@@ -933,6 +933,18 @@ to massive radiation overdoses. Long but well worth the read.</li>
 
 </ul>');
 
+insert into comment values (0, 1, 'Peter Veentjer', 'peter@example.com', 'http://pveentjer.wordpress.com/', '1.1.1.1', '2008-10-13 09:01:00', null,
+'dummy markdown text',
+'<p>Hi,</p>
+<p>I like your article because you described the classic problems and solutions well. But there are some minor issues with the code:</p>
+<p>1) the userMap in the InMemoryUserDao is not published safely and therefor relies on an external happens before rule to prevent reordering and visibility problems. This could lead to a NullPointerException when accessing the users reference. In most cases with constructors this is not an issue, but imho still a bad practice. It can be fixed by making users final. For more information see http://pveentjer.wordpress.com/2008/04/02/jmm-constructors-dont-have-visiblity-problems/</p>
+<p>2) I understand that you are working towards a solution with the InMemoryUserDao and step by step solve the problem. But I would add the advice to less experienced readers that they should look at really concurrent structures like the ConcurrentMap. It has atomic operations for the check/act problems (like putIfAbsent) but implementations can also perform better because they use lock striping for example instead of a big lock.</p>
+<p>3) Instead of using AND the internal synchronization of the SynchronizedMap AND the synchronization in the InMemoryUserDao, I would drop the SynchronizedMap completely and replace it by a standard Hashmap (make sure that all methods are going through the lock) It makes reasoning about locking easier. So if you can''t use the ConcurrentMap (e.g. a non standard datastructure) just have one location where the locking is done.</p>');
+
+insert into comment values (0, 1, 'Willie Wheeler', 'willie.wheeler@gmail.com', 'http://wheelersoftware.com/', '1.1.1.1', '2008-10-13 22:11:30', null,
+'dummy markdown text',
+'@Peter: Ah, good catch re #1. Yes, declaring users final will prevent consumer threads from seeing the DAO instance half-published (object created but state not initialized) by the publisher thread. I agree with both of your other points as well. In particular, I like your #3. Concurrency semantics are communicated through documentation more than through language features and so stylistic issues become important. Thanks for the feedback. ');
+
 -- ============================================================================
 insert into comment_target values (2, now(), null);
 

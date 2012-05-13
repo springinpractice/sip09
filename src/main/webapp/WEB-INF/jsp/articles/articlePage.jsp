@@ -10,15 +10,21 @@
 <fmt:formatDate var="articleDate" value="${article.dateCreated}" />
 
 <c:url var="articlesCssUrl" value="/styles/articles.css" />
+<c:url var="articlesUrl" value="/articles.html" />
+<c:url var="postCommentUrl" value="/articles/${article.name}/comments?p=${articlePage.pageNumber}#postComment" />
+<c:url var="zoneItUrl" value="/images/zone_it.png" />
+
+<%-- Syntax Highlighter --%>
 <c:url var="shCssUrl" value="/styles/SyntaxHighlighter.css" />
 <c:url var="shCoreJsUrl" value="/scripts/shCore.js" />
 <c:url var="shBrushJavaJsUrl" value="/scripts/shBrushJava.js" />
 <c:url var="shBrushXmlJsUrl" value="/scripts/shBrushXml.js" />
 <c:url var="clipboardSwfUrl" value="/swf/clipboard.swf" />
-<c:url var="articlesUrl" value="/articles.html" />
-<c:url var="postCommentUrl" value="/articles/${article.name}/comments?p=${articlePage.pageNumber}#postComment" />
 
-<c:url var="zoneItUrl" value="/images/zone_it.png" />
+<%-- WMD --%>
+<c:url var="wmdCssUrl" value="/scripts/wmd/wmd.css" />
+<c:url var="showdownJsUrl" value="/scripts/wmd/showdown.js" />
+<c:url var="wmdJsUrl" value="/scripts/wmd/wmd.js" />
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
@@ -28,9 +34,14 @@
 		<c:if test="${not empty article.keywords}">
 			<meta name="keywords" content="${article.description}" />
 		</c:if>
+		
 		<title><c:out value="${articlePage.title}" /></title>
-		<link rel="stylesheet" type="text/css" href="${articlesCssUrl}" />
+		
 		<link rel="stylesheet" type="text/css" href="${shCssUrl}" />
+		<link rel="stylesheet" type="text/css" href="${wmdCssUrl}" />
+		<link rel="stylesheet" type="text/css" href="${articlesCssUrl}" />
+		
+		<script type="text/javascript" src="${showdownJsUrl}"></script>
 	</head>
 	<body>
 		<ul id="breadcrumbs">
@@ -86,5 +97,9 @@
 			dp.SyntaxHighlighter.ClipboardSwf = '${clipboardSwfUrl}';
 			dp.SyntaxHighlighter.HighlightAll('code');
 		</script>
+		
+		<%-- Use this option to send Markdown to the server instead of the default HTML --%>
+		<script type="text/javascript">wmd_options = { output: "Markdown" };</script>
+		<script type="text/javascript" src="${wmdJsUrl}"></script>
 	</body>
 </html>
