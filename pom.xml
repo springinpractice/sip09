@@ -9,10 +9,10 @@
 		<artifactId>com.springinpractice.top</artifactId>
 		<version>1.0-RELEASE</version>
 	</parent>
-	<artifactId>com.springinpractice.09_03</artifactId>
+	<artifactId>com.springinpractice.09_04</artifactId>
 	<packaging>war</packaging>
-	<name>Spring in Practice Recipe 9.3</name>
-	<description>In recipe 9.3 we upgrade the plaintext comments to rich text comments.</description>
+	<name>Spring in Practice Recipe 9.4</name>
+	<description>Recipe 9.4 adds a unit test for the rich text filter.</description>
 	
 	<properties>
 		<chapter.number>09</chapter.number>

@@ -8,7 +8,7 @@
 	<!-- Spring in Practice informational metadata -->
 	<context-param>
 		<param-name>recipe</param-name>
-		<param-value>9.3</param-value>
+		<param-value>9.4</param-value>
 	</context-param>
 	<context-param>
 		<param-name>appName</param-name>
@@ -17,7 +17,7 @@
 	<context-param>
 		<param-name>aboutThisRecipe</param-name>
 		<param-value><![CDATA[
-<p>We add rich text to our comment engine in recipe 9.3.</p>
+<p>Recipe 9.4 adds a unit test for the rich text filter.</p>
 		]]></param-value>
 	</context-param>
 	
@@ -27,6 +27,7 @@
 		<param-value>
 			classpath:/spring/beans-resources.xml
 			classpath:/spring/beans-service.xml
+			classpath:/spring/beans-service-richtext.xml
 		</param-value>
 	</context-param>
     
