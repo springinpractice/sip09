@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,10 +18,6 @@ import com.springinpractice.web.WebUtils;
  * @author Willie Wheeler (willie.wheeler@gmail.com)
  */
 @Service
-@Transactional(
-	propagation = Propagation.REQUIRED,
-	isolation = Isolation.DEFAULT,
-	readOnly = true)
 public class CommentServiceImpl implements CommentService {
 	@Inject private TextFilter textFilter;
 	@Inject private CommentMailSender mailSender;
@@ -36,10 +31,7 @@ public class CommentServiceImpl implements CommentService {
 	 * (com.springinpractice.ch09.comment.model.Comment, com.springinpractice.ch09.comment.service.PostCommentCallback)
 	 */
 	@Override
-	@Transactional(
-		propagation = Propagation.REQUIRED,
-		isolation = Isolation.DEFAULT,
-		readOnly = false)
+	@Transactional(propagation = Propagation.NEVER)
 	public void postComment(final Comment comment, final PostCommentCallback callback) {
 		prepareComment(comment);
 		callback.post(comment);
