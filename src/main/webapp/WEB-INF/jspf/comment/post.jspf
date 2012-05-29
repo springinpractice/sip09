@@ -13,7 +13,7 @@
 		
 		<form:errors>
 			<div class="alert warning">
-				<form:errors></form:errors>
+				<form:errors />
 			</div>
 		</form:errors>
 		
@@ -27,7 +27,7 @@
 					</div>
 					<div class="yui-u">
 						<div>
-							<form:input id="name" path="name" cssClass="medium" cssErrorClass="medium error" />
+							<form:input path="name" cssClass="medium" cssErrorClass="medium error" />
 						</div>
 						<form:errors path="name">
 							<div class="formFieldError">
