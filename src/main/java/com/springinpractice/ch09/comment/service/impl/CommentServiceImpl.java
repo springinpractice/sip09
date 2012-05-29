@@ -5,8 +5,6 @@ import java.util.Date;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.springinpractice.ch09.comment.model.Comment;
 import com.springinpractice.ch09.comment.service.CommentService;
@@ -31,7 +29,6 @@ public class CommentServiceImpl implements CommentService {
 	 * (com.springinpractice.ch09.comment.model.Comment, com.springinpractice.ch09.comment.service.PostCommentCallback)
 	 */
 	@Override
-	@Transactional(propagation = Propagation.NEVER)
 	public void postComment(final Comment comment, final PostCommentCallback callback) {
 		prepareComment(comment);
 		callback.post(comment);
