@@ -1,13 +1,12 @@
 ========================================================================================================================
-README - Spring in Practice, Recipe 9.1
+README - Spring in Practice, Recipe 9.2
 
-Copyright (c) 2012 Manning Publications Co.
+Copyright (c) 2008-2012 Manning Publications Co.
 
 Willie Wheeler (willie.wheeler@gmail.com)
+
+Setup and configuration : http://springinpractice.com/code-and-setup/
+Troubleshooting         : http://springinpractice.com/troubleshooting/
 ========================================================================================================================
 
-This recipe shows how to create a basic comment engine to allow users to post comments against articles, blog posts,
-products and other such items.
-
-The code in this recipe is library code rather than application code, so there isn't anything to run yet. The following
-recipe shows how to incorporate it into an app.
+Recipe 9.2 shows how to integrate the comment engine from recipe 9.1 with an article delivery service.
