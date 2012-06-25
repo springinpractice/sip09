@@ -81,21 +81,20 @@
 						</div>
 					</div>
 					<div class="yui-u">
-						<div id="wmd-button-bar" class="wmd-panel"></div>
-						
-						<form:textarea
-							id="wmd-input"
-							path="markdownText"
-							cssClass="wmd-panel resizable"
-							cssErrorClass="wmd-panel resizable error" />
 						<div class="wmd-panel">
+							<div id="wmd-button-bar"></div>
+							<form:textarea
+								id="wmd-input"
+								path="markdownText"
+								cssClass="wmd-input resizable"
+								cssErrorClass="wmd-input resizable error" />
 							<form:errors path="markdownText">
 								<div class="formFieldError">
 									<form:errors path="markdownText" />
 								</div>
 							</form:errors>
 						</div>
-						<div id="wmd-preview" class="wmd-panel"></div>
+						<div id="wmd-preview" class="wmd-panel wmd-preview"></div>
 						<%--div id="wmd-output" class="wmd-panel"></div--%>
 					</div>
 				</div>

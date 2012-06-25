@@ -23,8 +23,9 @@
 
 <%-- WMD --%>
 <c:url var="wmdCssUrl" value="/scripts/wmd/wmd.css" />
-<c:url var="showdownJsUrl" value="/scripts/wmd/showdown.js" />
-<c:url var="wmdJsUrl" value="/scripts/wmd/wmd.js" />
+<c:url var="markdownConverterJsUrl" value="/scripts/pagedown/Markdown.Converter.js" />
+<c:url var="markdownEditorJsUrl" value="/scripts/pagedown/Markdown.Editor.js" />
+<c:url var="markdownSanitizerJsUrl" value="/scripts/pagedown/Markdown.Sanitizer.js" />
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
@@ -40,8 +41,6 @@
 		<link rel="stylesheet" type="text/css" href="${shCssUrl}" />
 		<link rel="stylesheet" type="text/css" href="${wmdCssUrl}" />
 		<link rel="stylesheet" type="text/css" href="${articlesCssUrl}" />
-		
-		<script type="text/javascript" src="${showdownJsUrl}"></script>
 	</head>
 	<body>
 		<ul id="breadcrumbs">
@@ -93,13 +92,18 @@
 		<script type="text/javascript" src="${shCoreJsUrl}"></script>
 		<script type="text/javascript" src="${shBrushJavaJsUrl}"></script>
 		<script type="text/javascript" src="${shBrushXmlJsUrl}"></script>
+		<script type="text/javascript" src="${markdownConverterJsUrl}"></script>
+		<script type="text/javascript" src="${markdownSanitizerJsUrl}"></script>
+		<script type="text/javascript" src="${markdownEditorJsUrl}"></script>
 		<script type="text/javascript">
-			dp.SyntaxHighlighter.ClipboardSwf = '${clipboardSwfUrl}';
-			dp.SyntaxHighlighter.HighlightAll('code');
+			$(function () {
+				dp.SyntaxHighlighter.ClipboardSwf = '${clipboardSwfUrl}';
+				dp.SyntaxHighlighter.HighlightAll('code');
+				
+				var converter = Markdown.getSanitizingConverter();
+				var editor = new Markdown.Editor(converter);
+				editor.run();
+			});
 		</script>
-		
-		<%-- Use this option to send Markdown to the server instead of the default HTML --%>
-		<script type="text/javascript">wmd_options = { output: "Markdown" };</script>
-		<script type="text/javascript" src="${wmdJsUrl}"></script>
 	</body>
 </html>

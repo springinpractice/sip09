@@ -72,22 +72,8 @@
 	<task:annotation-driven executor="executor" />
 	<task:executor id="executor" pool-size="5" />
 	
-	<bean class="com.springinpractice.ch09.comment.service.impl.RichTextFilter" />
+	<bean class="com.springinpractice.ch09.comment.service.impl.RichTextFilter"
+		p:rJs="classpath:/requirejs/r.js"
+		p:convertJs="classpath:/convert.js" />
 	
-	<!-- showdown.js maps Markdown to HTML -->
-	<bean id="showdownJsResource" class="org.springframework.core.io.ClassPathResource">
-		<constructor-arg value="/showdown.js" />
-	</bean>
-	
-	<!-- Defines HTML tag whitelist -->
-	<bean id="tagProviderResource" class="org.springframework.core.io.ClassPathResource">
-		<constructor-arg value="/htmlcleaner.xml" />
-	</bean>
-	
-	<util:property-path id="showdownJsFile" path="showdownJsResource.file" />
-	<util:property-path id="tagProviderFile" path="tagProviderResource.file" />
-
-	<bean id="tagProvider" class="org.htmlcleaner.ConfigFileTagProvider">
-		<constructor-arg ref="tagProviderFile" />
-	</bean>
 </beans>

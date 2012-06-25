@@ -12,7 +12,7 @@
 			<div id="commentsContainer">
 				<c:forEach var="comment" items="${commentList}">
 					<div id="comment-${comment.id}" class="comment">
-						<div class="body"><c:out value="${comment.text}" escapeXml="false" /></div>
+						<div class="body"><c:out value="${comment.htmlText}" escapeXml="false" /></div>
 						<div class="byline">
 							by
 							<c:choose>

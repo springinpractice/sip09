@@ -44,13 +44,21 @@
 			<type>war</type>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>com.springsource.org.apache.commons.io</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>com.springsource.javax.mail</artifactId>
 		</dependency>
+		
+		<!-- Includes CommonJS support, which Oracle's version does not -->
+		<!-- http://jdk7.java.net/rhino/README.TXT -->
 		<dependency>
-			<groupId>net.sourceforge.htmlcleaner</groupId>
-			<artifactId>htmlcleaner</artifactId>
-		</dependency> 
+			<groupId>org.mozilla</groupId>
+			<artifactId>rhino</artifactId>
+			<version>1.7R3</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
