@@ -16,15 +16,19 @@ public class HbnArticlePageDao extends AbstractHbnDao<ArticlePage> implements Ar
 	 */
 	@Override
 	public ArticlePage getByArticleNameAndPageNumber(String articleName, int pageNumber) {
-		Query q = getSession().getNamedQuery("getArticlePageByArticleNameAndPageNumber");
-		q.setParameter("articleName", articleName);
-		q.setParameter("pageNumber", pageNumber);
+		Query q = getSession()
+			.getNamedQuery("getArticlePageByArticleNameAndPageNumber")
+			.setParameter("articleName", articleName)
+			.setParameter("pageNumber", pageNumber);
+		
 		Object[] result = (Object[]) q.uniqueResult();
 		ArticlePage page = (ArticlePage) result[0];
 		int numPages = (Integer) result[1];
+		
 		Article article = page.getArticle();
 		article.setCalculateStats(false);
 		article.setNumPages(numPages);
+		
 		return page;
 	}
 }

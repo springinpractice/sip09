@@ -11,24 +11,19 @@
 		<c:when test="${not empty commentList}">
 			<div id="commentsContainer">
 				<c:forEach var="comment" items="${commentList}">
-					<c:set var="commentName" value="${comment.name}" />
-					<c:set var="commentWeb" value="${comment.web}" />
-					<fmt:formatDate var="commentDate" type="both" timeStyle="short" value="${comment.dateCreated}" />
-					
 					<div id="comment-${comment.id}" class="comment">
-						<div class="body">${comment.htmlText}</div>
+						<div class="body"><c:out value="${comment.htmlText}" escapeXml="false" /></div>
 						<div class="byline">
 							by
 							<c:choose>
 								<c:when test="${empty comment.web}">
-									<span class="user icon">${commentName}</span>
+									<span class="user icon"><c:out value="${comment.name}" /></span>
 								</c:when>
 								<c:otherwise>
-									<span class="user icon"><a href="${commentWeb}" rel="nofollow">${commentName}</a></span>
+									<span class="user icon"><a href="<c:out value="${comment.web}" />" rel="nofollow"><c:out value="${comment.name}" /></a></span>
 								</c:otherwise>
 							</c:choose>
-							on
-							<span class="date icon">${commentDate}</span>
+							on <span class="date icon"><fmt:formatDate type="both" timeStyle="short" value="${comment.dateCreated}" /></span>
 						</div>
 					</div>
 				</c:forEach>

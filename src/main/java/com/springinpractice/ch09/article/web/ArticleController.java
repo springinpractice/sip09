@@ -44,7 +44,7 @@ public final class ArticleController {
 		return articleListViewName;
 	}
 	
-	@RequestMapping(value = "{articleName}/{pageNumber}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{articleName}/{pageNumber}", method = RequestMethod.GET)
 	public String getArticlePage(
 			@PathVariable String articleName,
 			@PathVariable int pageNumber,
@@ -55,14 +55,14 @@ public final class ArticleController {
 		return articlePageViewName;
 	}
 	
-	@RequestMapping(value = "{articleName}/comments", method = RequestMethod.POST)
+	@RequestMapping(value = "/{articleName}/comments", method = RequestMethod.POST)
 	public String postComment(
-		HttpServletRequest req,
-		@PathVariable String articleName,
-		@RequestParam("p") int pageNumber,
-		Model model,
-		@ModelAttribute @Valid Comment comment,
-		BindingResult result) {
+			HttpServletRequest req,
+			@PathVariable String articleName,
+			@RequestParam("p") int pageNumber,
+			Model model,
+			@ModelAttribute @Valid Comment comment,
+			BindingResult result) {
 		
 		if (result.hasErrors()) {
 			log.debug("Comment validation error");
@@ -83,7 +83,7 @@ public final class ArticleController {
 	 * @param pageNumber
 	 * @param model
 	 */
-	private void prepareModel( Model model, String articleName, int pageNumber) {
+	private void prepareModel(Model model, String articleName, int pageNumber) {
 		ArticlePage page = articleService.getArticlePage(articleName, pageNumber);
 		
 		// articlePage.jsp expects this
