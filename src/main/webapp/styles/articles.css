@@ -101,3 +101,7 @@ div#articleTitle {
 	margin: 20px 0 0 0;
 	color: #333;
 }
+
+#wmd-preview a {
+	color: #1C6A8A;	
+}

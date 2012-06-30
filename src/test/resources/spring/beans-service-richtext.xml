@@ -8,6 +8,6 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 	
 	<bean class="com.springinpractice.ch09.comment.service.impl.RichTextFilter"
-		p:rJs="classpath:/requirejs/r.js"
-		p:convertJs="classpath:/convert.js" />
+		p:r="classpath:/requirejs/r.js"
+		p:convert="classpath:/convert.js" />
 </beans>

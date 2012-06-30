@@ -18,16 +18,16 @@ import com.springinpractice.ch09.comment.service.TextFilter;
  * @author Willie Wheeler (willie.wheeler@gmail.com)
  */
 public final class RichTextFilter implements TextFilter {
-	private Resource rJs;
-	private Resource convertJs;
+	private Resource r;
+	private Resource convert;
 	
-	public Resource getRJs() { return rJs; }
+	public Resource getR() { return r; }
 	
-	public void setRJs(Resource rJs) { this.rJs = rJs; }
+	public void setR(Resource r) { this.r = r; }
 	
-	public Resource getConvertJs() { return convertJs; }
+	public Resource getConvert() { return convert; }
 	
-	public void setConvertJs(Resource convertJs) { this.convertJs = convertJs; }
+	public void setConvert(Resource convert) { this.convert = convert; }
 	
 	public String filter(String text) {
 		
@@ -43,11 +43,11 @@ public final class RichTextFilter implements TextFilter {
 			sharedScope.defineFunctionProperties(names, sharedScope.getClass(), ScriptableObject.DONTENUM);
 			Scriptable argsObj = ctx.newArray(sharedScope, new Object[] { });
 			sharedScope.defineProperty("arguments", argsObj, ScriptableObject.DONTENUM);
-			ctx.evaluateReader(sharedScope, new InputStreamReader(rJs.getInputStream()), "r", 1, null);
+			ctx.evaluateReader(sharedScope, new InputStreamReader(r.getInputStream()), "r", 1, null);
 			
 			// Run PageDown
 			sharedScope.defineProperty("markdown", text, ScriptableObject.DONTENUM);
-			ctx.evaluateReader(sharedScope, new InputStreamReader(convertJs.getInputStream()), "convert", 1, null);
+			ctx.evaluateReader(sharedScope, new InputStreamReader(convert.getInputStream()), "convert", 1, null);
 			
 			return (String) sharedScope.get("html");
 			
