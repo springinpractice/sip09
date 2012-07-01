@@ -36,6 +36,12 @@
 		<prop key="hibernate.show_sql">false</prop>
 	</util:properties>
 	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+		p:sessionFactory-ref="sessionFactory" />
+	
+	<tx:annotation-driven />
+	
 	<context:component-scan base-package="com.springinpractice.ch09.article.dao.hbn" />
 	
 	
@@ -54,6 +60,10 @@
 		p:from="${comment.notification.from}"
 		p:subject="${comment.notification.subject}" />
 	
+	<!-- Support asynchronous e-mail delivery, which speeds things up -->
+	<task:annotation-driven executor="executor" />
+	<task:executor id="executor" pool-size="5" />
+	
 	
 	<!-- =========================================================================================================== -->
 	<!-- Service                                                                                                     -->
@@ -61,16 +71,6 @@
 	
 	<context:component-scan base-package="com.springinpractice.ch09.article.service.impl" />
 	<context:component-scan base-package="com.springinpractice.ch09.comment.service.impl" />
-	
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
-		p:sessionFactory-ref="sessionFactory" />
-	
-	<tx:annotation-driven />
-	
-	<!-- Support asynchronous e-mail delivery, which speeds things up -->
-	<task:annotation-driven executor="executor" />
-	<task:executor id="executor" pool-size="5" />
 	
 	<bean class="com.springinpractice.ch09.comment.service.impl.RichTextFilter"
 		p:r="classpath:/requirejs/r.js"

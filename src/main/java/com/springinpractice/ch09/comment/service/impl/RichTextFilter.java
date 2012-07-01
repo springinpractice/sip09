@@ -17,7 +17,7 @@ import com.springinpractice.ch09.comment.service.TextFilter;
  * 
  * @author Willie Wheeler (willie.wheeler@gmail.com)
  */
-public final class RichTextFilter implements TextFilter {
+public class RichTextFilter implements TextFilter {
 	private Resource r;
 	private Resource convert;
 	
@@ -36,20 +36,20 @@ public final class RichTextFilter implements TextFilter {
 		// http://stackoverflow.com/questions/11080037/java-7-rhino-1-7r3-support-for-commonjs-modules
 		Context ctx = Context.enter();
 		try {
-			ScriptableObject sharedScope = ctx.initStandardObjects(new JsRuntimeSupport(), true);
+			ScriptableObject scope = ctx.initStandardObjects(new JsRuntimeSupport(), true);
 			
 			// Set up RequireJS
 			String[] names = { "print", "load" };
-			sharedScope.defineFunctionProperties(names, sharedScope.getClass(), ScriptableObject.DONTENUM);
-			Scriptable argsObj = ctx.newArray(sharedScope, new Object[] { });
-			sharedScope.defineProperty("arguments", argsObj, ScriptableObject.DONTENUM);
-			ctx.evaluateReader(sharedScope, new InputStreamReader(r.getInputStream()), "r", 1, null);
+			scope.defineFunctionProperties(names, scope.getClass(), ScriptableObject.DONTENUM);
+			Scriptable argsObj = ctx.newArray(scope, new Object[] { });
+			scope.defineProperty("arguments", argsObj, ScriptableObject.DONTENUM);
+			ctx.evaluateReader(scope, new InputStreamReader(r.getInputStream()), "r", 1, null);
 			
 			// Run PageDown
-			sharedScope.defineProperty("markdown", text, ScriptableObject.DONTENUM);
-			ctx.evaluateReader(sharedScope, new InputStreamReader(convert.getInputStream()), "convert", 1, null);
+			scope.defineProperty("markdown", text, ScriptableObject.DONTENUM);
+			ctx.evaluateReader(scope, new InputStreamReader(convert.getInputStream()), "convert", 1, null);
 			
-			return (String) sharedScope.get("html");
+			return (String) scope.get("html");
 			
 		} catch (IOException e) {
 			throw new RuntimeException(e);

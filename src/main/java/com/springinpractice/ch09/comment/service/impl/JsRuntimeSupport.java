@@ -33,11 +33,11 @@ public class JsRuntimeSupport extends ScriptableObject {
 	}
 	
 	public static void load(Context ctx, Scriptable thisObj, Object[] args, Function func) throws IOException {
-		JsRuntimeSupport shell = (JsRuntimeSupport) getTopLevelScope(thisObj);
+		JsRuntimeSupport support = (JsRuntimeSupport) getTopLevelScope(thisObj);
 		for (int i = 0; i < args.length; i++) {
 			String filename = Context.toString(args[i]);
 			log.info("Loading file: {}", filename);
-			shell.processSource(ctx, filename);
+			support.processSource(ctx, filename);
 		}
 	}
 	
