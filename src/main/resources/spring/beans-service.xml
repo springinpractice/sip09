@@ -72,7 +72,10 @@
 	<context:component-scan base-package="com.springinpractice.ch09.article.service.impl" />
 	<context:component-scan base-package="com.springinpractice.ch09.comment.service.impl" />
 	
+	<!-- Moved this to bean-service-richtext.xml to support integration test -->
+	<!--
 	<bean class="com.springinpractice.ch09.comment.service.impl.RichTextFilter"
 		p:r="classpath:/requirejs/r.js"
 		p:convert="classpath:/convert.js" />
+	-->
 </beans>
