@@ -22,7 +22,7 @@
 <c:url var="clipboardSwfUrl" value="/swf/clipboard.swf" />
 
 <%-- WMD --%>
-<c:url var="wmdCssUrl" value="/scripts/wmd/wmd.css" />
+<c:url var="wmdCssUrl" value="/scripts/pagedown/wmd.css" />
 <c:url var="markdownConverterJsUrl" value="/scripts/pagedown/Markdown.Converter.js" />
 <c:url var="markdownEditorJsUrl" value="/scripts/pagedown/Markdown.Editor.js" />
 <c:url var="markdownSanitizerJsUrl" value="/scripts/pagedown/Markdown.Sanitizer.js" />
