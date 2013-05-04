@@ -1,5 +1,5 @@
 ========================================================================================================================
-README - Spring in Practice Recipe 9.2
+README - Spring in Practice Recipe 9.3
 
 Copyright (c) 2013 Manning Publications Co.
 
@@ -10,4 +10,4 @@ Blog: http://springinpractice.com/
 Code: https://github.com/springinpractice
 ========================================================================================================================
 
-Recipe 9.2 shows how to integrate the comment engine from recipe 9.1 with an article delivery service.
+In recipe 9.3 we upgrade the plaintext comments to rich text comments.
