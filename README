@@ -1,12 +1,13 @@
 ========================================================================================================================
-README - Spring in Practice, Recipe 9.2
+README - Spring in Practice Recipe 9.2
 
-Copyright (c) 2008-2012 Manning Publications Co.
+Copyright (c) 2013 Manning Publications Co.
 
 Willie Wheeler (willie.wheeler@gmail.com)
 
-Setup and configuration : http://springinpractice.com/code-and-setup/
-Troubleshooting         : http://springinpractice.com/troubleshooting/
+Book: http://manning.com/wheeler/
+Blog: http://springinpractice.com/
+Code: https://github.com/springinpractice
 ========================================================================================================================
 
 Recipe 9.2 shows how to integrate the comment engine from recipe 9.1 with an article delivery service.
