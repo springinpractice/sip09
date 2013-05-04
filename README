@@ -1,5 +1,5 @@
 ========================================================================================================================
-README - Spring in Practice Recipe 9.3
+README - Spring in Practice Recipe 9.4
 
 Copyright (c) 2013 Manning Publications Co.
 
@@ -10,4 +10,4 @@ Blog: http://springinpractice.com/
 Code: https://github.com/springinpractice
 ========================================================================================================================
 
-In recipe 9.3 we upgrade the plaintext comments to rich text comments.
+Recipe 9.4 adds a unit test for the rich text filter.
